@@ -156,12 +156,20 @@ function CoverPlane({ src, hoverRef, accent, focusX, focusY, zoom }) {
   )
 }
 
-export default function ShaderPortrait({ player, theme = 'ink' }) {
+export default function ShaderPortrait({ player, theme = 'ink', eager = false }) {
   const hoverRef = useRef({
     active: false,
     mouse: new THREE.Vector2(0.5, 0.55),
     invalidate: null,
   })
+
+  // Base <img> beneath the canvas: the real photo shows instantly (from cache,
+  // since the static portrait already fetched it) so there's never a blank
+  // frame while `three` decodes the texture and paints its first demand frame.
+  const focusX = player.portrait?.focusX ?? 50
+  const focusY = player.portrait?.focusY ?? 18
+  const zoom = player.portrait?.zoom ?? 1
+  const objectPosition = `${focusX}% ${focusY}%`
 
   const onMove = (e) => {
     const r = e.currentTarget.getBoundingClientRect()
@@ -191,6 +199,20 @@ export default function ShaderPortrait({ player, theme = 'ink' }) {
       onPointerMove={onMove}
     >
       <div className="portrait__frame">
+        <img
+          className="portrait__photo"
+          src={player.portrait.src}
+          alt={`${player.fullName} — ${player.team}, ${player.position}`}
+          loading={eager ? 'eager' : 'lazy'}
+          fetchpriority={eager ? 'high' : 'auto'}
+          decoding="async"
+          draggable={false}
+          style={{
+            objectPosition,
+            transform: zoom !== 1 ? `scale(${zoom})` : undefined,
+            transformOrigin: objectPosition,
+          }}
+        />
         <div className="portrait__canvas">
           <Canvas
             frameloop="demand"

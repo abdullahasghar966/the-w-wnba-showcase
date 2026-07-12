@@ -77,6 +77,12 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* Reserve the vertical scrollbar's gutter from the first layout so the
+     content width never jumps ~15px when the scrollbar appears (e.g. as the
+     intro bumper releases, or between short and tall pages). This keeps the
+     giant auto-fit surnames measuring against a stable width — otherwise the
+     longest names get fit before the scrollbar exists and end up a hair wide. */
+  scrollbar-gutter: stable;
 }
 body {
   background: var(--ink);
@@ -1223,6 +1229,19 @@ main {
   }
 }
 
+/* Narrow: the broadcast header's centre tag no longer fits between the
+   wordmark and the roster count — drop it and let the two ends breathe so
+   nothing clips off-screen. */
+@media (max-width: 640px) {
+  .frame-header {
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+  }
+  .frame-header__tag {
+    display: none;
+  }
+}
+
 /* Stack the player composition on smaller screens */
 @media (max-width: 760px) {
   .player {
@@ -1236,6 +1255,14 @@ main {
   }
   .player__names {
     order: 2;
+    /* In the desktop grid this band uses `align-self: end`; in the mobile flex
+       column that axis flips to horizontal, so `end` would let the nowrap name
+       shrink-wrap and bleed past the screen (and useFitText would then measure
+       that overflowing width as "available" and never scale the name down).
+       Force it back to the column width so useFitText fits to the real space. */
+    align-self: stretch;
+    width: 100%;
+    min-width: 0;
   }
   .player__portrait {
     order: 3;

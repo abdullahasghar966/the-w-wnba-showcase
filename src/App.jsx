@@ -38,6 +38,7 @@ export default function App() {
               player={player}
               theme={theme}
               align={align}
+              priority={i === 0}
             />
           )
 

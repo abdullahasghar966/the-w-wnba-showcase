@@ -24,7 +24,7 @@ import useFitText from '../hooks/useFitText.js'
  *   - a staggered reveal cascade (head → name → portrait → info) on entry
  *   - all neutralized under prefers-reduced-motion
  */
-export default function PlayerSection({ player, theme, align }) {
+export default function PlayerSection({ player, theme, align, priority = false }) {
   const num = String(player.index).padStart(2, '0')
   const { containerRef, textRef } = useFitText()
   const reduce = useReducedMotion()
@@ -100,7 +100,7 @@ export default function PlayerSection({ player, theme, align }) {
             gated by capability + proximity (static fallback otherwise) */}
         <motion.div className="player__portrait" {...itemMotion}>
           <motion.div style={{ y: portraitY }}>
-            <FeaturedPortrait player={player} theme={theme} />
+            <FeaturedPortrait player={player} theme={theme} eager={priority} />
           </motion.div>
         </motion.div>
 

@@ -14,7 +14,7 @@
  * Licensing/clearance of supplied photos is the project owner's call —
  * see docs/ROADMAP.md pre-deploy checklist.
  */
-export default function PlaceholderPortrait({ player }) {
+export default function PlaceholderPortrait({ player, eager = false }) {
   const num =
     player.jersey != null
       ? String(player.jersey)
@@ -38,7 +38,8 @@ export default function PlaceholderPortrait({ player }) {
               className="portrait__photo"
               src={photo}
               alt={`${player.fullName} — ${player.team}, ${player.position}`}
-              loading="lazy"
+              loading={eager ? 'eager' : 'lazy'}
+              fetchpriority={eager ? 'high' : 'auto'}
               decoding="async"
               draggable={false}
               style={{
