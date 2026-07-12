@@ -1,0 +1,24 @@
+{
+  "name": "the-w",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "THE W — WNBA Player Showcase. Portfolio-grade interactive scroll experience.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^8.18.0",
+    "framer-motion": "^12.42.2",
+    "lenis": "^1.3.25",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7"
+  }
+}
