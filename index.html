@@ -16,6 +16,17 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,100..900&family=Martian+Mono:wght@300..700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Preload the anchor player's portrait from static HTML so it downloads
+         in parallel with the JS bundle (not after it), keeping the first photo
+         fast even on a cold first visit. Served from /public at a stable URL so
+         the <img> src matches this href exactly and the browser reuses it. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/players/aja-wilson.jpeg"
+      fetchpriority="high"
+    />
   </head>
   <body>
     <div id="root"></div>

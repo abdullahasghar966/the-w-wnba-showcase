@@ -21,7 +21,10 @@
  *    Card art reuses the player photo where supplied, placeholder otherwise.
  */
 
-import ajaWilsonPhoto from '../assets/players/aja-wilson.jpeg'
+// A'ja Wilson (the anchor) is served from /public at a stable URL and preloaded
+// in index.html so the first portrait loads immediately on a cold visit — its
+// src below must match that preload href exactly. The rest use hashed imports.
+const ajaWilsonPhoto = '/players/aja-wilson.jpeg'
 import caitlinClarkPhoto from '../assets/players/caitlin-clark.jpeg'
 import paigeBueckersPhoto from '../assets/players/paige-bueckers.jpeg'
 import breannaStewartPhoto from '../assets/players/breanna-stewart.jpeg'
