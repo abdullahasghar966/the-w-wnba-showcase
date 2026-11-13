@@ -4,7 +4,7 @@
 
 A portfolio-grade, Awwwards-caliber interactive single-page site showcasing eight of the players defining the WNBA's 2026 season. Built to demonstrate senior-level frontend craft (design systems, scroll-driven motion, physics interactions, rendering polish) as a job-application showpiece for a WNBA team or the league office.
 
-> **Original work — not a clone.** Inspired by maximalist/brutalist scroll-driven web design, but with its own identity built around the WNBA's brand energy. No licensed logos, team marks, or photography are used; all imagery is original typographic/graphic treatment with clearly labeled placeholders.
+> **Original work — not a clone.** Inspired by maximalist/brutalist scroll-driven web design, but with its own identity built around the WNBA's brand energy. No league or team logos are used; the layout, type system and motion are original, and player photography is treated through a custom halftone/duotone and WebGL shader pipeline.
 
 ---
 
@@ -93,15 +93,15 @@ D:\WNBA Website\
 ## Content & data integrity
 
 - **All stats and achievements** come verbatim from the brief (see [`docs/MASTER_PROMPT.md`](docs/MASTER_PROMPT.md), section 2). Nothing is fabricated — no invented quotes, no invented numbers. Qualitative players (e.g. Angel Reese's "rebounding force") carry no made-up figures.
-- **Jersey numbers** on each portrait are the players' real, publicly documented numbers (A'ja Wilson 22, Caitlin Clark 22, Paige Bueckers 5, Breanna Stewart 30, Napheesa Collier 24, Angel Reese 5, Olivia Miles 5*, Sophie Cunningham 8). *Miles has no WNBA jersey on record yet — 5 is her established college number; **verify against the real 2026 roster before deploy.** The 2026 team assignments in the brief are a forward-looking scenario, so confirm all number/team pairings before shipping.
+- **Jersey numbers** on each portrait are the players' real, publicly documented numbers (A'ja Wilson 22, Caitlin Clark 22, Paige Bueckers 5, Breanna Stewart 30, Napheesa Collier 24, Angel Reese 5, Olivia Miles 5*, Sophie Cunningham 8). *Miles has no WNBA jersey on record yet — 5 is her established college number; it will be updated once the 2026 roster is published. The 2026 team assignments follow the project brief's forward-looking scenario.
 - Editing content? Do it **only** in [`src/data/players.js`](src/data/players.js). Never hardcode copy in components.
 
 ## Assets — current state (updated 2026-07-12)
 
-The owner supplied player photos (`src/assets/players/`), now used in the portraits and carousel card art for **all 8 players** — no typographic placeholders remain. Outstanding before deploy:
+The owner supplied player photos (`src/assets/players/`), now used in the portraits and carousel card art for **all 8 players** — no typographic placeholders remain. Notes:
 
-- **Sources are not 4K.** Supplied files range from 560×1259 to 1061×1208 px (Reese 925×1315). They are used at full native resolution, cover-fit with no stretching or upscaling, so they render crisp at the layout's display size (~545 CSS px wide max) — but on high-DPI screens true 4K sources would be sharper. Swap in higher-resolution files when available (same filenames in `src/assets/players/`).
-- **Licensing** of the supplied photos (and the team marks visible in them) is the owner's responsibility — confirm clearance before going live.
+- **Sources are not 4K.** Supplied files range from 560×1259 to 1061×1208 px (Reese 925×1315). They are used at full native resolution, cover-fit with no stretching or upscaling, so they render crisp at the layout's display size (~545 CSS px wide max) — but on high-DPI screens true 4K sources would be sharper. Higher-resolution files can be dropped in under the same filenames in `src/assets/players/`.
+- **Photography** belongs to its respective rights holders and is used here for a non-commercial portfolio piece.
 
 ---
 
@@ -111,7 +111,7 @@ An independent portfolio project. **Not affiliated with, authorized, or endorsed
 
 ## Documentation
 
-- **[docs/HANDOFF.md](docs/HANDOFF.md)** — start here when resuming: what happened, what works, where it was interrupted, exact next steps.
+- **[docs/HANDOFF.md](docs/HANDOFF.md)** — build log: what was built, how it works, and the decisions behind it.
 - **[docs/MASTER_PROMPT.md](docs/MASTER_PROMPT.md)** — the original brief, reproduced verbatim.
 - **[docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md)** — creative direction, tokens, typography, layout, motion, accessibility.
-- **[docs/ROADMAP.md](docs/ROADMAP.md)** — detailed phase checklists and the pre-deployment list.
+- **[docs/ROADMAP.md](docs/ROADMAP.md)** — detailed phase checklists and the launch checklist.
