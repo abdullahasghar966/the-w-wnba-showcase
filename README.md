@@ -1,5 +1,7 @@
 # THE W — 2026 WNBA Player Showcase
 
+**🔗 Live site:** [wnba-players-showcase.vercel.app](https://wnba-players-showcase.vercel.app)
+
 A portfolio-grade, Awwwards-caliber interactive single-page site showcasing eight of the players defining the WNBA's 2026 season. Built to demonstrate senior-level frontend craft (design systems, scroll-driven motion, physics interactions, rendering polish) as a job-application showpiece for a WNBA team or the league office.
 
 > **Original work — not a clone.** Inspired by maximalist/brutalist scroll-driven web design, but with its own identity built around the WNBA's brand energy. No licensed logos, team marks, or photography are used; all imagery is original typographic/graphic treatment with clearly labeled placeholders.
